@@ -1,10 +1,25 @@
+/* ===================================
+   SYDNEY GO DRIVING - CUSTOM STYLES
+   =================================== */
+
 /* Custom Fonts */
-.font-poppins {
-    font-family: 'Poppins', sans-serif;
+.font-display {
+    font-family: 'Plus Jakarta Sans', sans-serif;
 }
 
-.font-inter {
-    font-family: 'Inter', sans-serif;
+.font-body {
+    font-family: 'DM Sans', sans-serif;
+}
+
+body {
+    font-family: 'DM Sans', sans-serif;
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+}
+
+h1, h2, h3, h4, h5, h6,
+.font-poppins {
+    font-family: 'Plus Jakarta Sans', sans-serif;
 }
 
 /* Smooth Scrolling */
@@ -18,19 +33,91 @@ html {
 }
 
 ::-webkit-scrollbar-track {
-    background: #f1f1f1;
+    background: #f1f5f9;
 }
 
 ::-webkit-scrollbar-thumb {
-    background: #1E40AF;
+    background: linear-gradient(180deg, #1E40AF, #3B82F6);
     border-radius: 5px;
 }
 
 ::-webkit-scrollbar-thumb:hover {
-    background: #1e3a8a;
+    background: linear-gradient(180deg, #1e3a8a, #1E40AF);
 }
 
-/* Mobile menu animation */
+/* ===================================
+   HERO SECTION STYLES
+   =================================== */
+
+.hero-section {
+    background: linear-gradient(135deg, #f8fafc 0%, #eff6ff 50%, #f0fdf4 100%);
+}
+
+/* Hero fade-in animations */
+.hero-fade-in {
+    opacity: 0;
+    transform: translateY(20px);
+    animation: heroFadeIn 0.8s ease-out forwards;
+}
+
+@keyframes heroFadeIn {
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+/* Slow spin for decorative ring */
+@keyframes spin-slow {
+    from {
+        transform: rotate(0deg);
+    }
+    to {
+        transform: rotate(360deg);
+    }
+}
+
+.animate-spin-slow {
+    animation: spin-slow 30s linear infinite;
+}
+
+/* Hero circles hover effects */
+.hero-section .group:hover img {
+    transform: scale(1.15);
+}
+
+/* Floating animation for cards */
+@keyframes float {
+    0%, 100% {
+        transform: translateY(0) translateX(-50%);
+    }
+    50% {
+        transform: translateY(-8px) translateX(-50%);
+    }
+}
+
+.hero-section .absolute.-right-4,
+.hero-section .absolute.-left-4 {
+    animation: floatCard 4s ease-in-out infinite;
+}
+
+@keyframes floatCard {
+    0%, 100% {
+        transform: translateY(0);
+    }
+    50% {
+        transform: translateY(-6px);
+    }
+}
+
+.hero-section .absolute.-left-4 {
+    animation-delay: -2s;
+}
+
+/* ===================================
+   MOBILE MENU
+   =================================== */
+
 #menu-btn.active span:nth-child(1) {
     transform: rotate(45deg) translate(5px, 5px);
 }
@@ -43,14 +130,20 @@ html {
     transform: rotate(-45deg) translate(5px, -5px);
 }
 
-/* Form focus states */
+/* ===================================
+   FORM STYLES
+   =================================== */
+
 input:focus,
 select:focus,
 textarea:focus {
     outline: none;
 }
 
-/* Button hover animations */
+/* ===================================
+   BUTTONS & INTERACTIONS
+   =================================== */
+
 a, button {
     transition: all 0.3s ease;
 }
@@ -60,44 +153,10 @@ a, button {
     transform: translateY(-5px);
 }
 
-/* Hero section gradient animation */
-@keyframes gradientBG {
-    0% {
-        background-position: 0% 50%;
-    }
-    50% {
-        background-position: 100% 50%;
-    }
-    100% {
-        background-position: 0% 50%;
-    }
-}
+/* ===================================
+   TESTIMONIALS
+   =================================== */
 
-/* Hero image styling */
-#home .relative > img {
-    transition: transform 0.4s ease;
-}
-
-#home .relative:hover > img {
-    transform: scale(1.02);
-}
-
-/* Hero image fade edges - soft blend with background */
-.hero-img-fade {
-    -webkit-mask-image: radial-gradient(ellipse 85% 80% at 50% 45%, black 60%, transparent 100%);
-    mask-image: radial-gradient(ellipse 85% 80% at 50% 45%, black 60%, transparent 100%);
-}
-
-/* Blob animation */
-#home .relative svg {
-    transition: transform 0.6s ease;
-}
-
-#home .relative:hover svg {
-    transform: scale(1.05) rotate(5deg);
-}
-
-/* Testimonial cards equal height */
 #testimonials .grid > div {
     display: flex;
     flex-direction: column;
@@ -107,12 +166,15 @@ a, button {
     flex-grow: 1;
 }
 
-/* WhatsApp floating button (optional) */
+/* ===================================
+   WHATSAPP FLOAT BUTTON
+   =================================== */
+
 .whatsapp-float {
     position: fixed;
-    bottom: 20px;
-    right: 20px;
-    background-color: #25D366;
+    bottom: 24px;
+    right: 24px;
+    background: linear-gradient(135deg, #25D366, #128C7E);
     color: white;
     width: 60px;
     height: 60px;
@@ -120,17 +182,20 @@ a, button {
     display: flex;
     align-items: center;
     justify-content: center;
-    box-shadow: 0 4px 15px rgba(37, 211, 102, 0.4);
+    box-shadow: 0 4px 20px rgba(37, 211, 102, 0.4);
     z-index: 100;
     transition: transform 0.3s ease, box-shadow 0.3s ease;
 }
 
 .whatsapp-float:hover {
-    transform: scale(1.1);
-    box-shadow: 0 6px 20px rgba(37, 211, 102, 0.6);
+    transform: scale(1.1) translateY(-2px);
+    box-shadow: 0 8px 30px rgba(37, 211, 102, 0.5);
 }
 
-/* Loading spinner for form */
+/* ===================================
+   LOADING & SUCCESS STATES
+   =================================== */
+
 .spinner {
     border: 3px solid #f3f3f3;
     border-top: 3px solid #059669;
@@ -146,17 +211,19 @@ a, button {
     100% { transform: rotate(360deg); }
 }
 
-/* Success message */
 .success-message {
-    background-color: #d1fae5;
+    background: linear-gradient(135deg, #d1fae5, #a7f3d0);
     border: 1px solid #059669;
     color: #065f46;
     padding: 1rem;
-    border-radius: 0.5rem;
+    border-radius: 1rem;
     text-align: center;
 }
 
-/* Responsive adjustments */
+/* ===================================
+   RESPONSIVE ADJUSTMENTS
+   =================================== */
+
 @media (max-width: 768px) {
     .container {
         padding-left: 1rem;
@@ -170,9 +237,33 @@ a, button {
     h2 {
         font-size: 1.875rem;
     }
+
+    .hero-section .absolute.-right-4,
+    .hero-section .absolute.-left-4 {
+        position: relative;
+        right: auto;
+        left: auto;
+        top: auto;
+        transform: none;
+        margin-top: 1rem;
+    }
 }
 
-/* Animation for elements on scroll */
+@media (max-width: 1024px) {
+    .hero-section .absolute.-right-4 {
+        right: -1rem;
+    }
+
+    .hero-section .absolute.-left-4 {
+        left: -0.5rem;
+        top: 0;
+    }
+}
+
+/* ===================================
+   SCROLL ANIMATIONS
+   =================================== */
+
 .fade-in {
     opacity: 0;
     transform: translateY(20px);
@@ -182,4 +273,41 @@ a, button {
 .fade-in.visible {
     opacity: 1;
     transform: translateY(0);
+}
+
+/* ===================================
+   GRADIENT TEXT
+   =================================== */
+
+.text-gradient {
+    background: linear-gradient(135deg, #1E40AF, #3B82F6);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    background-clip: text;
+}
+
+/* ===================================
+   GLASS EFFECT
+   =================================== */
+
+.glass {
+    background: rgba(255, 255, 255, 0.8);
+    backdrop-filter: blur(10px);
+    -webkit-backdrop-filter: blur(10px);
+}
+
+/* ===================================
+   CUSTOM SHADOWS
+   =================================== */
+
+.shadow-soft {
+    box-shadow: 0 4px 20px rgba(0, 0, 0, 0.05);
+}
+
+.shadow-blue {
+    box-shadow: 0 4px 20px rgba(30, 64, 175, 0.15);
+}
+
+.shadow-green {
+    box-shadow: 0 4px 20px rgba(5, 150, 105, 0.2);
 }
