@@ -82,6 +82,12 @@ a, button {
     transform: scale(1.02);
 }
 
+/* Hero image fade edges - soft blend with background */
+.hero-img-fade {
+    -webkit-mask-image: radial-gradient(ellipse 85% 80% at 50% 45%, black 60%, transparent 100%);
+    mask-image: radial-gradient(ellipse 85% 80% at 50% 45%, black 60%, transparent 100%);
+}
+
 /* Blob animation */
 #home .relative svg {
     transition: transform 0.6s ease;
