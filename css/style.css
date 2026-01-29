@@ -73,6 +73,22 @@ a, button {
     }
 }
 
+/* Hero image styling */
+#home .relative img {
+    transition: transform 0.5s ease;
+}
+
+#home .relative:hover img {
+    transform: scale(1.05);
+}
+
+/* Hero image container shadow */
+#home .shadow-2xl {
+    box-shadow:
+        0 25px 50px -12px rgba(30, 64, 175, 0.25),
+        0 0 0 1px rgba(30, 64, 175, 0.1);
+}
+
 /* Testimonial cards equal height */
 #testimonials .grid > div {
     display: flex;
