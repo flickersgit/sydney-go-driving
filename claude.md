@@ -7,7 +7,7 @@
 - **GitHub Pages**: https://flickersgit.github.io/sydney-go-driving
 - **Branch**: master
 
-### DNS Configuration
+### DNS Configuration (di cPanel Zone Editor atau Domain Registrar)
 | Type | Name | Value |
 |------|------|-------|
 | A | @ | 185.199.108.153 |
@@ -16,12 +16,14 @@
 | A | @ | 185.199.111.153 |
 | CNAME | www | flickersgit.github.io |
 
+**Note**: Jika pakai hosting dengan nameserver sendiri, edit DNS di cPanel Zone Editor. Jika tidak, ganti nameserver ke registrar dan edit di DNS Manager registrar.
+
 ---
 
 ## Business Information
 
 ### About
-Sydney Go Driving adalah sekolah mengemudi profesional yang berlokasi di Sydney, Australia. Menyediakan layanan pembelajaran mengemudi dengan instruktur yang sabar dan berpengalaman.
+Sydney Go Driving adalah sekolah mengemudi profesional yang berlokasi di Sydney, Australia. Instruktur: **Gono Soehiantono** dengan pengalaman 13+ tahun.
 
 ### Contact
 - **Phone/SMS**: 0450 995 898
@@ -37,78 +39,90 @@ Sydney Go Driving adalah sekolah mengemudi profesional yang berlokasi di Sydney,
 | 10-Hour Package | $750 | Hemat $50 |
 | Test Preparation | $230 | Persiapan ujian |
 
-*Catatan: Pembayaran 50% di muka untuk semua paket*
+*Hero section menampilkan "From $75/hour"*
+*Pembayaran 50% di muka untuk semua paket*
+
+### Vehicle
+- Toyota Yaris Cross 2022 (Auto)
+- Dual controls, 5-star ANCAP rating
 
 ### Key Selling Points
-- Instruktur sabar dan berpengalaman
-- Pendekatan pengajaran personal (disesuaikan dengan gaya belajar siswa)
-- Metodologi berbasis dorongan semangat
+- Instruktur sabar dan berpengalaman (13+ tahun)
+- Pendekatan pengajaran personal
 - Membantu siswa lulus ujian pada percobaan pertama
 - Komunikasi ramah dan harga wajar
-
-### Testimonials
-1. "Very patient and adapts his teaching style to the student's experience and learning style" - Membantu pengemudi gugup lebih percaya diri
-2. "Great instruction and really professional, friendly communication and reasonable price"
-3. "Helped me pass my test on my first attempt - encouraging, patient with solid teaching methods"
 
 ---
 
 ## Tech Stack
 - **Frontend**: HTML, CSS, JavaScript
 - **Styling**: Tailwind CSS (CDN)
-- **Fonts**: Google Fonts (Poppins, Inter)
-- **Hosting**: GitHub Pages
+- **Fonts**: Plus Jakarta Sans (headings), DM Sans (body)
+- **Hosting**: GitHub Pages (gratis)
 
 ## Project Structure
 ```
 /
-├── index.html          # Single-page landing
-├── CNAME               # Custom domain config
-├── claude.md           # Project documentation
+├── index.html              # Single-page landing
+├── CNAME                   # Custom domain config
+├── claude.md               # Project documentation
 ├── css/
-│   └── style.css       # Custom styles
+│   └── style.css           # Custom styles & animations
 ├── js/
-│   └── main.js         # JavaScript (menu, form, animations)
-└── images/             # Folder untuk gambar
+│   └── main.js             # Menu, form, scroll animations
+└── images/
+    ├── gono-denoised.png   # Foto instruktur (no background, denoised)
+    ├── gono-nobg.png       # Foto instruktur (no background)
+    ├── gono-profile.jpeg   # Foto instruktur (original)
+    ├── gono-sharp.png      # Foto instruktur (sharpened)
+    └── yaris-cross.png     # Toyota Yaris Cross (no background)
 ```
 
 ## Design Guidelines
 
 ### Brand Colors
-- **Primary**: Biru (#1E40AF) - Kepercayaan & profesionalisme
-- **Secondary**: Hijau (#059669) - CTA & aksi positif
-- **Accent**: Kuning (#F59E0B) - Highlight & perhatian
-- **Background**: Putih (#FFFFFF) & Abu-abu terang (#F3F4F6)
+- **Primary**: Blue gradient (#1E40AF → #2563EB)
+- **Accent**: Emerald (#059669) - untuk highlights
+- **Text**: Slate (#0f172a, #475569)
+- **Background**: Gradient (slate-50 → blue-50 → emerald-50)
 
 ### Typography
-- **Headings**: Poppins (Bold)
-- **Body**: Inter (Regular)
+- **Display/Headings**: Plus Jakarta Sans (600-800 weight)
+- **Body**: DM Sans (400-600 weight)
 
 ### Design Principles
-- Mobile-first responsive design
-- Clean dan profesional
-- Mudah dinavigasi
-- CTA yang jelas untuk booking
+- Premium, professional aesthetic
+- Mobile-first responsive
+- Blue gradient buttons (semua CTA)
+- Soft shadows dan depth layers
+- Staggered fade-in animations
 
 ## Features
 
+### Hero Section
+- Dual circle composition (Gono + Toyota Yaris Cross)
+- Gradient background dengan blur effects
+- "13+ Years" badge di atas foto
+- "From $75/hr" price badge
+- Decorative spinning ring
+- Wave divider di bottom
+
 ### Implemented
-- [x] Hero section dengan tagline dan CTA "Book Now"
-- [x] Daftar paket/harga dengan pricing cards
-- [x] Section keunggulan (Why Choose Us)
-- [x] Testimoni pelanggan (3 testimonials)
-- [x] Formulir booking dengan integrasi WhatsApp
+- [x] Premium hero dengan dual circles
+- [x] Blue gradient CTA buttons
+- [x] Pricing cards (4 packages)
+- [x] Why Choose Us section
+- [x] Testimonials (3 reviews)
+- [x] Contact form dengan WhatsApp integration
 - [x] Floating WhatsApp button
-- [x] Responsive navigation dengan hamburger menu
-- [x] Footer dengan kontak dan social links
-- [x] Smooth scroll navigation
-- [x] Scroll animations
+- [x] Responsive navigation
+- [x] Footer dengan quick links
+- [x] Smooth scroll & animations
 
 ### Future Enhancements
-- [ ] Hero image/video background
-- [ ] Google Maps embed untuk area layanan
-- [ ] More testimonials dengan carousel/slider
-- [ ] Blog/artikel tips mengemudi
+- [ ] Google Maps untuk area layanan
+- [ ] Testimonial carousel
+- [ ] Blog/tips mengemudi
 - [ ] Online booking calendar
 
 ## SEO Keywords
@@ -129,6 +143,7 @@ git pull origin master
 
 ## Notes
 - Target audience: Learner drivers di Sydney
-- Fokus pada kesan profesional dan terpercaya
-- Highlight testimoni untuk social proof
-- Semua nomor telepon clickable (tel: dan wa.me)
+- Semua buttons pakai blue gradient
+- WhatsApp integration untuk booking
+- Foto Gono sudah di-denoise dan remove background
+- Toyota Yaris Cross image dari Toyota official press
