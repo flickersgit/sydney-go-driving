@@ -1,12 +1,31 @@
 # Sydney Go Driving Website
 
+## Deployment
+
+- **Live URL**: https://sydneygodriving.com.au
+- **GitHub Repo**: https://github.com/flickersgit/sydney-go-driving
+- **GitHub Pages**: https://flickersgit.github.io/sydney-go-driving
+- **Branch**: master
+
+### DNS Configuration
+| Type | Name | Value |
+|------|------|-------|
+| A | @ | 185.199.108.153 |
+| A | @ | 185.199.109.153 |
+| A | @ | 185.199.110.153 |
+| A | @ | 185.199.111.153 |
+| CNAME | www | flickersgit.github.io |
+
+---
+
 ## Business Information
 
 ### About
 Sydney Go Driving adalah sekolah mengemudi profesional yang berlokasi di Sydney, Australia. Menyediakan layanan pembelajaran mengemudi dengan instruktur yang sabar dan berpengalaman.
 
 ### Contact
-- **Phone/SMS**: 0450995898
+- **Phone/SMS**: 0450 995 898
+- **WhatsApp**: [+61 450 995 898](https://wa.me/61450995898)
 - **Website**: sydneygodriving.com.au
 - **Facebook**: [Sydney GO Driving School](https://www.facebook.com/sydneygodriving)
 
@@ -36,22 +55,21 @@ Sydney Go Driving adalah sekolah mengemudi profesional yang berlokasi di Sydney,
 
 ## Tech Stack
 - **Frontend**: HTML, CSS, JavaScript
-- **Styling**: Tailwind CSS
-- **Build Tool**: Vite (opsional)
+- **Styling**: Tailwind CSS (CDN)
+- **Fonts**: Google Fonts (Poppins, Inter)
+- **Hosting**: GitHub Pages
 
 ## Project Structure
 ```
 /
-├── index.html          # Landing page
+├── index.html          # Single-page landing
+├── CNAME               # Custom domain config
+├── claude.md           # Project documentation
 ├── css/
 │   └── style.css       # Custom styles
 ├── js/
-│   └── main.js         # JavaScript utama
-├── images/             # Logo, hero image, testimonial photos
-└── pages/
-    ├── services.html   # Halaman layanan & harga
-    ├── about.html      # Tentang kami
-    └── contact.html    # Kontak & booking
+│   └── main.js         # JavaScript (menu, form, animations)
+└── images/             # Folder untuk gambar
 ```
 
 ## Design Guidelines
@@ -72,16 +90,26 @@ Sydney Go Driving adalah sekolah mengemudi profesional yang berlokasi di Sydney,
 - Mudah dinavigasi
 - CTA yang jelas untuk booking
 
-## Key Features to Implement
-- [ ] Hero section dengan tagline dan CTA "Book Now"
-- [ ] Daftar paket/harga dengan tabel yang jelas
-- [ ] Section keunggulan (why choose us)
-- [ ] Testimoni pelanggan dengan carousel/slider
-- [ ] Formulir booking/kontak
-- [ ] Integrasi WhatsApp/SMS ke 0450995898
+## Features
+
+### Implemented
+- [x] Hero section dengan tagline dan CTA "Book Now"
+- [x] Daftar paket/harga dengan pricing cards
+- [x] Section keunggulan (Why Choose Us)
+- [x] Testimoni pelanggan (3 testimonials)
+- [x] Formulir booking dengan integrasi WhatsApp
+- [x] Floating WhatsApp button
+- [x] Responsive navigation dengan hamburger menu
+- [x] Footer dengan kontak dan social links
+- [x] Smooth scroll navigation
+- [x] Scroll animations
+
+### Future Enhancements
+- [ ] Hero image/video background
 - [ ] Google Maps embed untuk area layanan
-- [ ] Responsive navigation dengan hamburger menu
-- [ ] Footer dengan kontak dan social links
+- [ ] More testimonials dengan carousel/slider
+- [ ] Blog/artikel tips mengemudi
+- [ ] Online booking calendar
 
 ## SEO Keywords
 - driving school sydney
@@ -90,8 +118,17 @@ Sydney Go Driving adalah sekolah mengemudi profesional yang berlokasi di Sydney,
 - driving instructor sydney
 - learner driver lessons
 
+## Git Commands
+```bash
+# Push changes
+git add -A && git commit -m "Update message" && git push
+
+# Pull latest
+git pull origin master
+```
+
 ## Notes
 - Target audience: Learner drivers di Sydney
 - Fokus pada kesan profesional dan terpercaya
 - Highlight testimoni untuk social proof
-- Pastikan nomor telepon clickable (tel:0450995898)
+- Semua nomor telepon clickable (tel: dan wa.me)
