@@ -1,0 +1,4 @@
+User-agent: *
+Allow: /
+
+Sitemap: https://sydneygodriving.com.au/sitemap.xml
