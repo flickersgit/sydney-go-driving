@@ -9,7 +9,12 @@
     <script src="https://cdn.tailwindcss.com"></script>
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=DM+Sans:opsz,wght@9..40,400;9..40,500;9..40,600;9..40,700&family=Plus+Jakarta+Sans:wght@600;700;800&display=swap" rel="stylesheet">
+    <!-- Preload critical hero images -->
+    <link rel="preload" as="image" href="images/gono-optimized.webp" type="image/webp">
+    <link rel="preload" as="image" href="images/yaris-cross-optimized.webp" type="image/webp">
+    <!-- Load fonts with display swap -->
+    <link href="https://fonts.googleapis.com/css2?family=DM+Sans:opsz,wght@9..40,400;9..40,500;9..40,600;9..40,700&family=Plus+Jakarta+Sans:wght@600;700;800&display=swap" rel="stylesheet" media="print" onload="this.media='all'">
+    <noscript><link href="https://fonts.googleapis.com/css2?family=DM+Sans:opsz,wght@9..40,400;9..40,500;9..40,600;9..40,700&family=Plus+Jakarta+Sans:wght@600;700;800&display=swap" rel="stylesheet"></noscript>
     <link rel="stylesheet" href="css/style.css">
 </head>
 <body class="font-inter text-gray-700">
@@ -115,11 +120,15 @@
                             <div class="relative z-20 group">
                                 <div class="w-40 h-40 md:w-52 md:h-52 rounded-full bg-gradient-to-br from-white to-slate-50 p-1.5 shadow-2xl shadow-blue-900/10">
                                     <div class="w-full h-full rounded-full bg-gradient-to-br from-blue-100 via-blue-50 to-slate-100 overflow-hidden">
-                                        <img
-                                            src="images/gono-denoised.png"
-                                            alt="Gono - Professional Driving Instructor"
-                                            class="w-full h-full object-cover object-top scale-110 group-hover:scale-115 transition-transform duration-500"
-                                        >
+                                        <picture>
+                                            <source srcset="images/gono-optimized.webp" type="image/webp">
+                                            <img
+                                                src="images/gono-denoised.png"
+                                                alt="Gono - Professional Driving Instructor"
+                                                class="w-full h-full object-cover object-top scale-110 group-hover:scale-115 transition-transform duration-500"
+                                                loading="eager"
+                                            >
+                                        </picture>
                                     </div>
                                 </div>
                                 <!-- Name Badge -->
@@ -137,11 +146,15 @@
                             <div class="relative z-30 -ml-4 md:-ml-6 mb-8">
                                 <div class="w-32 h-32 md:w-40 md:h-40 rounded-full bg-gradient-to-br from-white to-slate-50 p-1 shadow-xl shadow-slate-900/5">
                                     <div class="w-full h-full rounded-full bg-gradient-to-br from-slate-100 via-slate-50 to-white overflow-hidden flex items-center justify-center p-3">
-                                        <img
-                                            src="images/yaris-cross.png"
-                                            alt="Toyota Yaris Cross 2022"
-                                            class="w-full h-auto object-contain drop-shadow-sm"
-                                        >
+                                        <picture>
+                                            <source srcset="images/yaris-cross-optimized.webp" type="image/webp">
+                                            <img
+                                                src="images/yaris-cross-optimized.png"
+                                                alt="Toyota Yaris Cross 2022"
+                                                class="w-full h-auto object-contain drop-shadow-sm"
+                                                loading="eager"
+                                            >
+                                        </picture>
                                     </div>
                                 </div>
                             </div>
