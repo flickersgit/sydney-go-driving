@@ -11,6 +11,7 @@
 - **DNS Provider**: Cloudflare (gratis)
 - **Domain Registrar**: Crazy Domains (https://www.crazydomains.com.au)
 - **Email Hosting**: Syrahost cPanel
+- **Cloudflare Nameservers**: felicity.ns.cloudflare.com, haley.ns.cloudflare.com
 
 ### DNS Records (di Cloudflare)
 **Website (GitHub Pages):**
@@ -32,13 +33,14 @@
 | TXT | @ | v=spf1 +a +mx ... | - |
 | TXT | default._domainkey | v=DKIM1; k=r... | - |
 
-### Cloudflare SSL Settings
+### Cloudflare Settings
 - **SSL/TLS Mode**: Full
 - **Always Use HTTPS**: On
 - **Automatic HTTPS Rewrites**: On
+- **Browser Cache TTL**: 1 year (untuk assets statis)
 
 ### Setup Notes
-- Nameservers harus diganti di Crazy Domains ke Cloudflare NS
+- Nameservers diganti di Crazy Domains ke Cloudflare NS
 - Email tetap menggunakan Syrahost hosting
 - AAAA records tidak diperlukan (sudah dihapus)
 - cPanel diakses via cpanel.sydneygodriving.com.au
@@ -84,24 +86,70 @@ Sydney Go Driving adalah sekolah mengemudi profesional yang berlokasi di Sydney,
 - **Styling**: Tailwind CSS (CDN)
 - **Fonts**: Plus Jakarta Sans (headings), DM Sans (body)
 - **Hosting**: GitHub Pages (gratis)
+- **CDN/SSL**: Cloudflare (gratis)
 
 ## Project Structure
 ```
 /
 ├── index.html              # Single-page landing
 ├── CNAME                   # Custom domain config
+├── sitemap.xml             # Sitemap untuk Google
+├── robots.txt              # Search engine instructions
 ├── claude.md               # Project documentation
 ├── css/
 │   └── style.css           # Custom styles & animations
 ├── js/
 │   └── main.js             # Menu, form, scroll animations
 └── images/
-    ├── gono-denoised.png   # Foto instruktur (no background, denoised)
+    ├── gono-denoised.png   # Foto instruktur (original, 34KB)
+    ├── gono-optimized.webp # Foto instruktur (WebP, 6.5KB)
     ├── gono-nobg.png       # Foto instruktur (no background)
     ├── gono-profile.jpeg   # Foto instruktur (original)
     ├── gono-sharp.png      # Foto instruktur (sharpened)
-    └── yaris-cross.png     # Toyota Yaris Cross (no background)
+    ├── yaris-cross.png     # Toyota Yaris Cross (original, 5.3MB)
+    ├── yaris-cross-optimized.png  # Toyota Yaris Cross (optimized, 71KB)
+    └── yaris-cross-optimized.webp # Toyota Yaris Cross (WebP, 15KB)
 ```
+
+---
+
+## SEO & Performance
+
+### PageSpeed Scores (Mobile)
+| Metric | Score |
+|--------|-------|
+| Performance | 82 |
+| Accessibility | 88 |
+| Best Practices | 100 |
+| SEO | 92 |
+
+### SEO Features
+- **Canonical URL**: Mencegah duplicate content
+- **Sitemap**: sitemap.xml untuk Google crawling
+- **Robots.txt**: Instruksi untuk search engines
+- **Structured Data**: JSON-LD schema (DrivingSchool)
+- **Meta Tags**: Title, description, keywords
+
+### Structured Data (JSON-LD)
+- Schema type: `DrivingSchool`
+- Includes: Business info, services, pricing, aggregate rating
+- Validates at: https://validator.schema.org
+
+### Image Optimization
+| Image | Original | Optimized | Savings |
+|-------|----------|-----------|---------|
+| yaris-cross | 5.3 MB | 15 KB (WebP) | 99.7% |
+| gono-denoised | 34 KB | 6.5 KB (WebP) | 81% |
+
+### Performance Optimizations
+- [x] WebP images dengan PNG fallback
+- [x] Image preloading untuk hero section
+- [x] Deferred Google Fonts loading
+- [x] Preconnect untuk external origins
+- [x] Explicit width/height pada images (CLS)
+- [ ] Tailwind CSS purge (future improvement)
+
+---
 
 ## Design Guidelines
 
@@ -121,6 +169,8 @@ Sydney Go Driving adalah sekolah mengemudi profesional yang berlokasi di Sydney,
 - Blue gradient buttons (semua CTA)
 - Soft shadows dan depth layers
 - Staggered fade-in animations
+
+---
 
 ## Features
 
@@ -143,12 +193,17 @@ Sydney Go Driving adalah sekolah mengemudi profesional yang berlokasi di Sydney,
 - [x] Responsive navigation
 - [x] Footer dengan quick links
 - [x] Smooth scroll & animations
+- [x] SEO structured data
+- [x] Sitemap & robots.txt
 
 ### Future Enhancements
 - [ ] Google Maps untuk area layanan
 - [ ] Testimonial carousel
 - [ ] Blog/tips mengemudi
 - [ ] Online booking calendar
+- [ ] Tailwind CSS build (reduce 124KB → ~15KB)
+
+---
 
 ## SEO Keywords
 - driving school sydney
@@ -166,9 +221,16 @@ git add -A && git commit -m "Update message" && git push
 git pull origin master
 ```
 
+## Useful Links
+- **Google Search Console**: https://search.google.com/search-console
+- **PageSpeed Insights**: https://pagespeed.web.dev/
+- **Schema Validator**: https://validator.schema.org
+- **Cloudflare Dashboard**: https://dash.cloudflare.com
+
 ## Notes
 - Target audience: Learner drivers di Sydney
 - Semua buttons pakai blue gradient
 - WhatsApp integration untuk booking
 - Foto Gono sudah di-denoise dan remove background
 - Toyota Yaris Cross image dari Toyota official press
+- Images menggunakan WebP dengan PNG fallback
