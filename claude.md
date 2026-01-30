@@ -7,16 +7,41 @@
 - **GitHub Pages**: https://flickersgit.github.io/sydney-go-driving
 - **Branch**: master
 
-### DNS Configuration (di cPanel Zone Editor atau Domain Registrar)
-| Type | Name | Value |
-|------|------|-------|
-| A | @ | 185.199.108.153 |
-| A | @ | 185.199.109.153 |
-| A | @ | 185.199.110.153 |
-| A | @ | 185.199.111.153 |
-| CNAME | www | flickersgit.github.io |
+### DNS Management: Cloudflare
+- **DNS Provider**: Cloudflare (gratis)
+- **Domain Registrar**: Crazy Domains (https://www.crazydomains.com.au)
+- **Email Hosting**: Syrahost cPanel
 
-**Note**: Jika pakai hosting dengan nameserver sendiri, edit DNS di cPanel Zone Editor. Jika tidak, ganti nameserver ke registrar dan edit di DNS Manager registrar.
+### DNS Records (di Cloudflare)
+**Website (GitHub Pages):**
+| Type | Name | Value | Proxy |
+|------|------|-------|-------|
+| A | @ | 185.199.108.153 | Proxied |
+| A | @ | 185.199.109.153 | Proxied |
+| A | @ | 185.199.110.153 | Proxied |
+| A | @ | 185.199.111.153 | Proxied |
+| CNAME | www | flickersgit.github.io | Proxied |
+
+**Email (Syrahost):**
+| Type | Name | Value | Proxy |
+|------|------|-------|-------|
+| A | mail | 203.170.86.153 | DNS only |
+| A | cpanel | 203.170.86.153 | DNS only |
+| CNAME | webmail | webmail.au.syrahost.com | DNS only |
+| MX | @ | mail.sydneygodriving.com.au (priority 0) | - |
+| TXT | @ | v=spf1 +a +mx ... | - |
+| TXT | default._domainkey | v=DKIM1; k=r... | - |
+
+### Cloudflare SSL Settings
+- **SSL/TLS Mode**: Full
+- **Always Use HTTPS**: On
+- **Automatic HTTPS Rewrites**: On
+
+### Setup Notes
+- Nameservers harus diganti di Crazy Domains ke Cloudflare NS
+- Email tetap menggunakan Syrahost hosting
+- AAAA records tidak diperlukan (sudah dihapus)
+- cPanel diakses via cpanel.sydneygodriving.com.au
 
 ---
 
