@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Redirecting... | Sydney Go Driving</title>
+    <link rel="canonical" href="https://sydneygodriving.com.au/">
+    <script>
+        // Map common paths to anchors
+        const pathMap = {
+            '/contact': '#contact',
+            '/contact-us': '#contact',
+            '/book': '#contact',
+            '/booking': '#contact',
+            '/package-price': '#pricing',
+            '/packages': '#pricing',
+            '/pricing': '#pricing',
+            '/services': '#services',
+            '/why-us': '#why-us',
+            '/testimonials': '#testimonials',
+            '/about': '#why-us',
+            '/home': '#home'
+        };
+        
+        const path = window.location.pathname.toLowerCase().replace(/\/$/, '');
+        const anchor = pathMap[path] || '';
+        
+        // Redirect to main page with anchor
+        window.location.replace('https://sydneygodriving.com.au/' + anchor);
+    </script>
+    <noscript>
+        <meta http-equiv="refresh" content="0; url=https://sydneygodriving.com.au/">
+    </noscript>
+</head>
+<body>
+    <p>Redirecting to <a href="https://sydneygodriving.com.au/">Sydney Go Driving</a>...</p>
+</body>
+</html>
